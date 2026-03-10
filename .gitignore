@@ -1,31 +1,25 @@
-*.class
+# Flutter / React Native common ignore
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# build folders
+build/
+dist/
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-/bin/
-.project
+# android
+android/.gradle
+android/build
 
-# Android keystore & signing credentials — NEVER commit these
-*.jks
-*.keystore
-keystore.properties
+# ios
+ios/Pods
+ios/build
 
-# Android local SDK path — machine-specific
-local.properties
+# node
+node_modules
 
-# Android build outputs
-android/app/build/
-android/build/
-
-# IDE
-.idea/
-*.iml
+# macOS
 .DS_Store
