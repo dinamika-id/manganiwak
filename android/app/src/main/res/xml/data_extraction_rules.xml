@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Android 12+ (API 31+) data extraction rules.
+    Controls what data is included/excluded from cloud backups and device-to-device transfers.
+    Since allowBackup="false" is set in the manifest, this acts as an explicit declaration
+    for compliance with Play Console backup policy requirements.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Exclude all app data from cloud backup (game state is local-only) -->
+        <exclude domain="root" />
+        <exclude domain="file" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="external" />
+    </cloud-backup>
+    <device-transfer>
+        <!-- Exclude all app data from device-to-device transfer -->
+        <exclude domain="root" />
+        <exclude domain="file" />
+        <exclude domain="database" />
+        <exclude domain="sharedpref" />
+        <exclude domain="external" />
+    </device-transfer>
+</data-extraction-rules>

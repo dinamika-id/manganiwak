@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Load keystore credentials from keystore.properties (gitignored — fill in before release build)
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace 'com.bilkent.manganiwak'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.bilkent.manganiwak"
+        minSdk 22
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // Release signing config — credentials loaded from keystore.properties
+    signingConfigs {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // Enable R8 code shrinking and obfuscation for release
+            minifyEnabled true
+            // Enable resource shrinking to reduce AAB size
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            debuggable true
+            // Debug uses default debug signing — do NOT use for Play Store
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    // AAB bundle configuration for Play Store upload
+    bundle {
+        language {
+            // Keep all language resources (set to false to split by language)
+            enableSplit false
+        }
+        density {
+            enableSplit true
+        }
+        abi {
+            enableSplit true
+        }
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets']
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}

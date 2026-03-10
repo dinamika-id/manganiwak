@@ -1,0 +1,31 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+/bin/
+.project
+
+# Android keystore & signing credentials — NEVER commit these
+*.jks
+*.keystore
+keystore.properties
+
+# Android local SDK path — machine-specific
+local.properties
+
+# Android build outputs
+android/app/build/
+android/build/
+
+# IDE
+.idea/
+*.iml
+.DS_Store
