@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A Feeding Frenzy inspired game where you control a fish and eat your way to the top of the food chain!"
+            android:text="A fun underwater adventure game where you control a fish and eat your way to the top of the food chain!"
             android:textColor="@android:color/white"
             android:textSize="15sp"
             android:gravity="center"
@@ -70,7 +70,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="© Bilkent University CS"
+            android:text="© Rusmiyati"
+            android:textColor="#AAAAAA"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dinamikaangkasa@gmail.com"
             android:textColor="#AAAAAA"
             android:textSize="13sp"
             android:gravity="center" />
