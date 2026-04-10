@@ -1,0 +1,4 @@
+
+# Release keystore (NEVER commit)
+release.jks
+keystore.properties
